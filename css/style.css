@@ -1,0 +1,250 @@
+/* @import '~normalize.scss'; */
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,300,600,700,800);
+
+/* .wrap
+  margin: 0
+  padding: 0
+  width: 100vw
+  height: 100vh
+  background: #FDE3A7
+  // background-image: radial-gradient(#374566, #010203)
+  font-family: 'Indie Flower', cursive !important */
+
+body {
+	margin: 0px;
+	padding: 0px;
+  background: #FDE3A7;
+	/* background-image: radial-gradient(#374566, #010203); */
+	font-family: 'Indie Flower', cursive !important;
+}
+
+::selection {
+	background: transparent;
+}
+
+.color1 {
+	margin: 34px;
+	color:#1BBC9B;
+	text-align: center;
+	font-size: 26px;
+	font-family: 'Amatic SC', cursive !important;
+	line-height: 1px;
+}
+
+.color2 {
+	margin: 34px;
+	color:#C0392B;
+	text-align: center;
+	font-size: 26px;
+	font-family: 'Amatic SC', cursive !important;
+	line-height: 1px;
+}
+
+.card {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 400px;
+	background: #e0e1dc;
+	box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 20px 0 60px rgba(0,0,0,.5);
+	color: #013243;
+	transition: 1s;
+	transform: translate(-50%,-50%) perspective(2000px);
+
+	transform-style: preserve-3d;
+}
+
+.card:hover {
+	box-shadow: inset 6px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
+	transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.2);
+}
+
+.card:before {
+	position: absolute;
+	top: -5px;
+	left: 0;
+	width: 100%;
+	height: 5px;
+	background: #BAC1BA;
+	content:'';
+	transform: skewX(-45deg);
+	transform-origin: bottom;
+}
+
+.card:after {
+	position: absolute;
+	top: 0;
+	right: -5px;
+	width: 5px;
+	height: 100%;
+	background: #92A29C;
+	content: '';
+	transform: skewY(-45deg);
+	transform-origin: left;
+}
+
+.card .imgBox {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: .7s;
+	transform-origin: left;
+}
+
+.card .bark {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #e0e1dc;
+	opacity: 0;
+	transition: .7s;
+}
+
+.card .imgBox img {
+	min-width: 250px;
+	max-height: 400px;
+}
+
+.card:hover .imgBox {
+	transform: rotateY(-135deg);
+}
+
+.card:hover .bark {
+  box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
+	opacity: 1;
+	transition: .6s;
+}
+
+.card .details {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	box-sizing: border-box;
+	margin-top: 30px;
+	padding: 0 0 0 10px;
+}
+
+.card .details p {
+	padding: 0 0 0 20px;
+	font-size: 15px;
+	line-height: 5px;
+	transform: rotate(-10deg);
+}
+
+.card .details h4 {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+/* song */
+canvas {
+  position: absolute;
+  top: 0;
+}
+
+#wishes {
+	position: absolute;
+	right: 0;
+	bottom: 20px;
+  width: 450px;
+  border: 1px dotted;
+  background: hsla(210, 50%, 15%, 0.5);
+  text-align: center;
+}
+span {
+  display: inline-block;
+	cursor: pointer;
+}
+span.jump {
+  animation: jump 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s 2 alternate;
+}
+@keyframes jump {
+  to {
+    transform: translateY(-0.7em);
+  }
+}
+
+#pleaseClick {
+  position: absolute;
+  top: calc(50vh - 12.5em);
+  left: calc(50vw - 5em);
+  width: 10em;
+  background: hsla(210, 50%, 15%, 0.75);
+  text-align: center;
+  font-size: 80%;
+  animation: jump 1s ease-in-out infinite alternate;
+}
+#pleaseClick span {
+  font-size: 200%;
+}
+
+.control {
+  text-align: center;
+}
+
+input[type="range"],
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb {
+  width: 18em;
+
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  margin-top: -9px;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #374566;
+  border-radius: 50%;
+  background-color: #777;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border: 3px solid #333;
+  border-radius: 50%;
+  background-color: #777;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #333;
+  border-radius: 50%;
+  background-color: #777;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 3px;
+  background-color: #777;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  outline: none;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 3px;
+  background-color: #777;
+}
+
+input[type="range"]::-ms-track {
+  height: 3px;
+  background-color: #777;
+}
+
+input[type="range"]::-ms-fill-lower {
+  background-color: HotPink;
+}
+
+input[type="range"]::-ms-fill-upper {
+  background-color: black;
+}
