@@ -9,38 +9,49 @@
 </head>
 
 <body>
-  <canvas id="canvas"></canvas>
-  <div class="card">
-    <div class="imgBox">
-      <div class="bark"></div>
-      <img src="https://image.ibb.co/fYzTrb/lastofus.jpg">
+  <div class="wrap">
+    <canvas id="canvas"></canvas>
+    <div class="card">
+      <div class="imgBox">
+        <div class="bark"></div>
+        <img src="https://image.ibb.co/fYzTrb/lastofus.jpg">
+      </div>
+      <div class="details">
+        <div class="color1">GodJJ</div>
+        <div class="color2">HAPPY BIRTHDAY!</div>
+        <p>Hi JJ,</p>
+        <p>從2012年就開始追隨你</p>
+        <p>19年時正逢人生低潮及轉換跑道</p>
+        <p>謝謝你</p>
+        <p>陪伴我渡過那段艱難的日子</p>
+        <p>如今目標達成 順利轉職成工程師</p>
+        <p>想藉由你的專屬日做個小卡片感謝你~</p>
+        <p>願你身體健康 闔家平安 : )</p>
+        <p class="text-right">Happy Birthday！</p>
+        <p class="text-right">♥Sarah</p>
+      </div>
     </div>
-    <div class="details">
-      <div class="color1">GodJJ</div>
-      <div class="color2">HAPPY BIRTHDAY</div>
-      <p>Dear Dad,</p>
-      <p>Let's see.. .</p>
-      <p>You’re never around, you</p>
-      <p>hate the music I’m into, you</p>
-      <p>practically despise the movies I</p>
-      <p>like, and yet somehow you still</p>
-      <p>manage to be the best dad every year.</p>
-      <p>How do you do that? :)</p>
-      <p class="text-right">Happy Birthday！</p>
-      <p class="text-right">♥Sarah</p>
-    </div>
+  
+    <!-- <div id="pleaseClick">Please click<br><span>V</span></div> -->
+    <div class="musicBox">
+      <div id="wishes">
+        <div class="lyricsBox">
+          <span id="p1" class="lyrics"></span>
+          <span id="p2" class="lyrics"></span>
+          <span id="p3" class="lyrics"></span>
+          <span id="p4" class="lyrics"></span>
+        </div>
+  
+      </div>
+      <div class="speedBar">
+        <p class="control">
+          <label for="inputSpeed">Speed:</label>
+          <input type="range" id="inputSpeed" min="0.1" max="2" step="0.1" value="0.5"></p>
+      </div>
   </div>
 
-  <!-- <div id="pleaseClick">Please click<br><span>V</span></div> -->
-  <div id="wishes">
-    <p id="p1"></p>
-    <p id="p2"></p>
-    <p id="p3"></p>
-    <p id="p4"></p>
-    <p class="control">
-    <label for="inputSpeed">Speed:</label>
-    <input type="range" id="inputSpeed" min="0.1" max="2" step="0.1" value="0.5"></p>
   </div>
+
 
   <script src="js/all.js"></script>
 </body>

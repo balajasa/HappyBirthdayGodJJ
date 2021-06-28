@@ -7,22 +7,22 @@ const notes = [
   {f:262,d:1,t:"day&nbsp;",p:p1},
   {f:349,d:1,t:"To&nbsp;",p:p1},
   {f:330,d:2,t:"You",p:p1},
-  
+
   {f:262,d:.5,t:"Hap",p:p2},
   {f:262,d:.5,t:"py&nbsp;",p:p2},
   {f:294,d:1,t:"Birth",p:p2},
   {f:262,d:1,t:"day&nbsp;",p:p2},
   {f:392,d:1,t:"To&nbsp;",p:p2},
   {f:349,d:2,t:"You",p:p2},
-  
+
   {f:262,d:.5,t:"Hap",p:p3},
   {f:262,d:.5,t:"py&nbsp;",p:p3},
   {f:523,d:1,t:"Birth",p:p3},
   {f:440,d:1,t:"day&nbsp;",p:p3},
-  {f:349,d:1,t:"Dear&nbsp;",p:p3},
-  {f:330,d:1,t:"Dar",p:p3},
-  {f:294,d:3,t:"win",p:p3},
-  
+  {f:349,d:1,t:"To&nbsp;",p:p3},
+  {f:330,d:1,t:"J",p:p3},
+  {f:294,d:3,t:"J",p:p3},
+
   {f:466,d:.5,t:"Hap",p:p4},
   {f:466,d:.5,t:"py&nbsp;",p:p4},
   {f:440,d:1,t:"Birth",p:p4},
@@ -56,7 +56,7 @@ class Sound{
     this.index = i;
     this.sp = notes[i].sp
   }
-  
+
   cease(){
     this.stop = true;
     this.sp.classList.remove("jump");
@@ -64,35 +64,35 @@ class Sound{
     if(this.index < sounds.length-1){sounds[this.index+1].play();}
     if(this.index == sounds.length-1){flag = false;}
   }
-  
+
   play(){
    // crea un nuevo oscillator
-   this.oscillator = audioCtx.createOscillator();
-   // crea un nuevo nodo de ganancia 
-   this.gain = audioCtx.createGain();
-   // establece el valor inicial del volumen del sonido 
-   this.gain.gain.value = this.initialGain;
-   // establece el tipo de oscillator  
-   this.oscillator.type = this.waveform;
-   // y el valor de la frecuencia 
-   this.oscillator.frequency.value = this.frequency;
-   // el volumen del sonido baja exponencialmente     
-   this.gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + this.speed);
-   // conecta el oscillator con el nodo de ganancia 
-   this.oscillator.connect(this.gain);
+  this.oscillator = audioCtx.createOscillator();
+   // crea un nuevo nodo de ganancia
+  this.gain = audioCtx.createGain();
+   // establece el valor inicial del volumen del sonido
+  this.gain.gain.value = this.initialGain;
+   // establece el tipo de oscillator
+  this.oscillator.type = this.waveform;
+   // y el valor de la frecuencia
+  this.oscillator.frequency.value = this.frequency;
+   // el volumen del sonido baja exponencialmente
+  this.gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + this.speed);
+   // conecta el oscillator con el nodo de ganancia
+  this.oscillator.connect(this.gain);
    // y la ganancia con el dispositivo de destino
-   this.gain.connect(audioCtx.destination);
-   // inicia el oscillator 
-   this.oscillator.start(audioCtx.currentTime);
-   this.sp.setAttribute("class", "jump");
-   this.stop = false;
-   // para el oscillator después de un tiempo (this.speed) 
-   this.oscillator.stop(audioCtx.currentTime + this.speed); 
-   this.oscillator.onended = ()=> {this.cease();}
-  }  
+  this.gain.connect(audioCtx.destination);
+   // inicia el oscillator
+  this.oscillator.start(audioCtx.currentTime);
+  this.sp.setAttribute("class", "jump");
+  this.stop = false;
+   // para el oscillator después de un tiempo (this.speed)
+  this.oscillator.stop(audioCtx.currentTime + this.speed);
+  this.oscillator.onended = ()=> {this.cease();}
+  }
 }
 
-for(let i=0; i < notes.length; i++){
+for(let i=0; i < notes.length; i++) {
   let sound = new Sound(notes[i].f, notes[i].d,i);
   sounds.push(sound);
 }
@@ -100,16 +100,16 @@ for(let i=0; i < notes.length; i++){
 
 // EVENTS
 wishes.addEventListener("click",function(e){
-  if(e.target.id != "inputSpeed" && !flag){
-  sounds[0].play();
-  flag = true;}
-  },false);
-                        
-                        
-inputSpeed.addEventListener("input",function(e){
+  if (e.target.id != "inputSpeed" && !flag) {
+    sounds[0].play();
+    flag = true;
+  }
+},false);
+
+inputSpeed.addEventListener("input",function(e) {
   speed = this.value;
   sounds.map((s) => {
-    s.speed = s.dur*speed
+    s.speed = s.dur * speed
   });
 },false);
 
@@ -117,9 +117,9 @@ inputSpeed.addEventListener("input",function(e){
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 let cw = canvas.width = window.innerWidth,
-  cx = cw / 2;
+    cx = cw / 2;
 let ch = canvas.height = window.innerHeight,
-  cy = ch / 2;
+    cy = ch / 2;
 
 let requestId = null;
 
@@ -149,38 +149,36 @@ class Particle{
     ctx.translate(this.x,this.y);
     ctx.rotate(this.rot);
     ctx.beginPath();
-    for( let i = 0; i < this.l; i++ ){
-		let x = this.r * Math.cos( this.a*i );
-		let y = this.r * Math.sin( this.a*i );
-		ctx.lineTo(x, y);
+    for( let i = 0; i < this.l; i++ ) {
+		  let x = this.r * Math.cos( this.a*i );
+		  let y = this.r * Math.sin( this.a*i );
+		  ctx.lineTo(x, y);
     }
     ctx.closePath();
     ctx.lineWidth = 4;
     ctx.strokeStyle = this.color;
     ctx.stroke();
-    
+
     ctx.restore();
   }
-  
 }
 
 let particles = [];
-for(let i = 0; i < 20; i++){
-let p = new Particle();
-particles.push(p)
+for (let i = 0; i < 20; i++) {
+  let p = new Particle();
+  particles.push(p)
 }
 
 
-
 function Draw() {
-requestId = window.requestAnimationFrame(Draw);
-//ctx.globalAlpha=0.65;
-ctx.clearRect(0,0,cw,ch);
-particles.map((p) => {
-  p.rot += p.rotSpeed;
-  p.update();
-  p.draw();
-})
+  requestId = window.requestAnimationFrame(Draw);
+  //ctx.globalAlpha=0.65;
+  ctx.clearRect(0,0,cw,ch);
+  particles.map((p) => {
+    p.rot += p.rotSpeed;
+    p.update();
+    p.draw();
+  })
 
 }
 
@@ -189,19 +187,18 @@ function Init() {
 	if (requestId) {
 		window.cancelAnimationFrame(requestId);
 		requestId = null;
-}
+  }
 
+  cw = canvas.width = window.innerWidth,cx = cw / 2;
+  ch = canvas.height = window.innerHeight,cy = ch / 2;
 
-cw = canvas.width = window.innerWidth,cx = cw / 2;
-ch = canvas.height = window.innerHeight,cy = ch / 2;
-
-//particles.map((p) => p.update());
-Draw();
+  // particles.map((p) => p.update());
+  Draw();
 };
 
 setTimeout(function() {
-		Init();
-		window.addEventListener('resize', Init, false);
+	Init();
+	window.addEventListener('resize', Init, false);
 }, 15);
 
 

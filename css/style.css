@@ -1,7 +1,8 @@
 /* @import '~normalize.scss'; */
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,300,600,700,800);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,300,600,700,800');
 
 /* .wrap
   margin: 0
@@ -13,8 +14,8 @@
   font-family: 'Indie Flower', cursive !important */
 
 body {
-	margin: 0px;
-	padding: 0px;
+	/* margin: 0px;
+	padding: 0px; */
   background: #FDE3A7;
 	/* background-image: radial-gradient(#374566, #010203); */
 	font-family: 'Indie Flower', cursive !important;
@@ -24,12 +25,21 @@ body {
 	background: transparent;
 }
 
+.wrap {
+	width: 100%;
+	height: 100%;
+}
+
+.details {
+	font-family: 'Noto Sans TC', sans-serif;
+}
+
 .color1 {
 	margin: 34px;
 	color:#1BBC9B;
 	text-align: center;
 	font-size: 26px;
-	font-family: 'Amatic SC', cursive !important;
+	font-family: 'Amatic SC', cursive;
 	line-height: 1px;
 }
 
@@ -38,7 +48,7 @@ body {
 	color:#C0392B;
 	text-align: center;
 	font-size: 26px;
-	font-family: 'Amatic SC', cursive !important;
+	font-family: 'Amatic SC', cursive;
 	line-height: 1px;
 }
 
@@ -147,13 +157,23 @@ body {
 canvas {
   position: absolute;
   top: 0;
+	left: 0;
+}
+.musicBox {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: 100%;
+	height: 100%;
 }
 
 #wishes {
 	position: absolute;
-	right: 0;
-	bottom: 20px;
+	/* right: 0; */
+	bottom: 10%;
   width: 450px;
+	height: 100px;
   border: 1px dotted;
   background: hsla(210, 50%, 15%, 0.5);
   text-align: center;
@@ -163,12 +183,41 @@ span {
 	cursor: pointer;
 }
 span.jump {
+	color: red;
   animation: jump 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s 2 alternate;
 }
 @keyframes jump {
   to {
     transform: translateY(-0.7em);
   }
+}
+
+.lyricsBox {
+	overflow: hidden;
+	height: 30px;
+}
+
+#p1, #p2, #p3, #p4 {
+	display: block;
+}
+
+.lyrics.jump {
+	animation: move 1s;
+}
+
+@keyframes move {
+	0% {
+		transform: translateY(0px);
+	}
+	100% {
+		transform: translateY(-20px);
+	}
+}
+
+
+.speedBar {
+	position: absolute;
+	bottom: 10%;
 }
 
 #pleaseClick {
@@ -247,4 +296,25 @@ input[type="range"]::-ms-fill-lower {
 
 input[type="range"]::-ms-fill-upper {
   background-color: black;
+}
+
+
+/* @media (max-width: 1200px) {
+
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 768px) {
+	.lyricsBox {
+		left: 66%;
+	}
+} */
+
+@media (max-width: 375px) {
+	#wishes, .speedBar {
+		bottom: 0;
+	}
 }
