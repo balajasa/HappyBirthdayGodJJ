@@ -1,34 +1,34 @@
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 const notes = [
-  {f:262,d:.5,t:"Hap",p:p1},
-  {f:262,d:.5,t:"py&nbsp;",p:p1},
-  {f:294,d:1,t:"Birth",p:p1},
-  {f:262,d:1,t:"day&nbsp;",p:p1},
-  {f:349,d:1,t:"To&nbsp;",p:p1},
-  {f:330,d:2,t:"You",p:p1},
+  // {f:262,d:.5,t:"Hap",p:p1},
+  // {f:262,d:.5,t:"py&nbsp;",p:p1},
+  // {f:294,d:1,t:"Birth",p:p1},
+  // {f:262,d:1,t:"day&nbsp;",p:p1},
+  // {f:349,d:1,t:"To&nbsp;",p:p1},
+  // {f:330,d:2,t:"You",p:p1},
 
-  {f:262,d:.5,t:"Hap",p:p2},
-  {f:262,d:.5,t:"py&nbsp;",p:p2},
-  {f:294,d:1,t:"Birth",p:p2},
-  {f:262,d:1,t:"day&nbsp;",p:p2},
-  {f:392,d:1,t:"To&nbsp;",p:p2},
-  {f:349,d:2,t:"You",p:p2},
+  // {f:262,d:.5,t:"Hap",p:p2},
+  // {f:262,d:.5,t:"py&nbsp;",p:p2},
+  // {f:294,d:1,t:"Birth",p:p2},
+  // {f:262,d:1,t:"day&nbsp;",p:p2},
+  // {f:392,d:1,t:"To&nbsp;",p:p2},
+  // {f:349,d:2,t:"You",p:p2},
 
-  {f:262,d:.5,t:"Hap",p:p3},
-  {f:262,d:.5,t:"py&nbsp;",p:p3},
-  {f:523,d:1,t:"Birth",p:p3},
-  {f:440,d:1,t:"day&nbsp;",p:p3},
-  {f:349,d:1,t:"To&nbsp;",p:p3},
-  {f:330,d:1,t:"J",p:p3},
-  {f:294,d:3,t:"J",p:p3},
+  // {f:262,d:.5,t:"Hap",p:p3},
+  // {f:262,d:.5,t:"py&nbsp;",p:p3},
+  // {f:523,d:1,t:"Birth",p:p3},
+  // {f:440,d:1,t:"day&nbsp;",p:p3},
+  // {f:349,d:1,t:"To&nbsp;",p:p3},
+  // {f:330,d:1,t:"J",p:p3},
+  // {f:294,d:3,t:"J",p:p3},
 
-  {f:466,d:.5,t:"Hap",p:p4},
-  {f:466,d:.5,t:"py&nbsp;",p:p4},
-  {f:440,d:1,t:"Birth",p:p4},
-  {f:349,d:1,t:"day&nbsp;",p:p4},
-  {f:392,d:1,t:"To&nbsp;",p:p4},
-  {f:349,d:2,t:"You",p:p4},
+  // {f:466,d:.5,t:"Hap",p:p4},
+  // {f:466,d:.5,t:"py&nbsp;",p:p4},
+  // {f:440,d:1,t:"Birth",p:p4},
+  // {f:349,d:1,t:"day&nbsp;",p:p4},
+  // {f:392,d:1,t:"To&nbsp;",p:p4},
+  // {f:349,d:2,t:"You",p:p4},
 ];
 
 //DOM
@@ -41,7 +41,7 @@ function createSpan(n){
 }
 
 // SOUND
-let speed = inputSpeed.value;
+// let speed = inputSpeed.value;
 let flag = false;
 let sounds = [];
 
@@ -99,19 +99,19 @@ for(let i=0; i < notes.length; i++) {
 
 
 // EVENTS
-wishes.addEventListener("click",function(e){
-  if (e.target.id != "inputSpeed" && !flag) {
-    sounds[0].play();
-    flag = true;
-  }
-},false);
+// wishes.addEventListener("click",function(e){
+//   if (e.target.id != "inputSpeed" && !flag) {
+//     sounds[0].play();
+//     flag = true;
+//   }
+// },false);
 
-inputSpeed.addEventListener("input",function(e) {
-  speed = this.value;
-  sounds.map((s) => {
-    s.speed = s.dur * speed
-  });
-},false);
+// inputSpeed.addEventListener("input",function(e) {
+//   speed = this.value;
+//   sounds.map((s) => {
+//     s.speed = s.dur * speed
+//   });
+// },false);
 
 // CANVAS
 const canvas = document.getElementById("canvas");
@@ -120,7 +120,10 @@ let cw = canvas.width = window.innerWidth,
     cx = cw / 2;
 let ch = canvas.height = window.innerHeight,
     cy = ch / 2;
-
+console.log('cw', cw)
+console.log('ch', ch)
+console.log('cx', cx)
+console.log('cy', cy)
 let requestId = null;
 
 const colors = ["#93DFB8","#FFC8BA","#E3AAD6","#B5D8EB","#FFBDD8"];
@@ -191,6 +194,8 @@ function Init() {
 
   cw = canvas.width = window.innerWidth,cx = cw / 2;
   ch = canvas.height = window.innerHeight,cy = ch / 2;
+
+
 
   // particles.map((p) => p.update());
   Draw();
