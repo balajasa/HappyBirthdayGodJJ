@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
-/* @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,300,600,700,800'); */
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
@@ -30,7 +29,7 @@ canvas {
 }
 
 .details {
-	font-family: 'Noto Sans TC', sans-serif;
+	font-family: 'Microsoft JhengHei';
 }
 
 .color1 {
@@ -142,10 +141,17 @@ canvas {
 	font-size: 14px;
 	line-height: 8px;
 	transform: rotate(-10deg);
+  /* transform: translate3d(0, 0, 0) */
 }
 
 .detailText {
-	margin-top: -4px;
+	margin-top: -8px;
+}
+
+.text-image {
+  background: url("https://upload.cc/i1/2021/07/06/cLix1g.png");
+  width: 271px;
+  height: 247px;
 }
 
 .margin-bottom {
