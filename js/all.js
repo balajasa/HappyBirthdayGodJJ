@@ -120,10 +120,6 @@ let cw = canvas.width = window.innerWidth,
     cx = cw / 2;
 let ch = canvas.height = window.innerHeight,
     cy = ch / 2;
-console.log('cw', cw)
-console.log('ch', ch)
-console.log('cx', cx)
-console.log('cy', cy)
 let requestId = null;
 
 const colors = ["#93DFB8","#FFC8BA","#E3AAD6","#B5D8EB","#FFBDD8"];
