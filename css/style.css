@@ -36,8 +36,9 @@ canvas {
 	margin: 34px;
 	color:#1BBC9B;
 	text-align: center;
-	font-size: 26px;
+	font-size: 40px;
 	font-family: 'Amatic SC', cursive;
+  /* font-family: 'Microsoft JhengHei'; */
 	line-height: 1px;
 }
 
@@ -45,9 +46,9 @@ canvas {
 	margin: 34px;
 	color:#C0392B;
 	text-align: center;
-	font-size: 26px;
+	font-size: 36px;
 	font-family: 'Amatic SC', cursive;
-	line-height: 1px;
+	line-height: 6px;
 }
 
 .card {
@@ -149,7 +150,7 @@ canvas {
 }
 
 .text-image {
-  background: url("https://upload.cc/i1/2021/07/06/cLix1g.png");
+  background: url("https://upload.cc/i1/2021/07/06/aKhj13.png");
   width: 271px;
   height: 247px;
 }
@@ -332,15 +333,6 @@ span {
 		transform: translate(-15px, 10px) rotate(10deg);
 	}
 }
-h1 {
-	position: relative;
-	top: 200px;
-	color: white;
-	text-align: center;
-	font-size: 3.5em;
-}
-
-
 
 @media (max-width: 768px) {
 	.balloon {

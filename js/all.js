@@ -66,27 +66,21 @@ class Sound{
   }
 
   play(){
-   // crea un nuevo oscillator
   this.oscillator = audioCtx.createOscillator();
-   // crea un nuevo nodo de ganancia
   this.gain = audioCtx.createGain();
-   // establece el valor inicial del volumen del sonido
   this.gain.gain.value = this.initialGain;
-   // establece el tipo de oscillator
+
   this.oscillator.type = this.waveform;
-   // y el valor de la frecuencia
   this.oscillator.frequency.value = this.frequency;
-   // el volumen del sonido baja exponencialmente
+
   this.gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + this.speed);
-   // conecta el oscillator con el nodo de ganancia
   this.oscillator.connect(this.gain);
-   // y la ganancia con el dispositivo de destino
   this.gain.connect(audioCtx.destination);
-   // inicia el oscillator
+
   this.oscillator.start(audioCtx.currentTime);
   this.sp.setAttribute("class", "jump");
   this.stop = false;
-   // para el oscillator después de un tiempo (this.speed)
+
   this.oscillator.stop(audioCtx.currentTime + this.speed);
   this.oscillator.onended = ()=> {this.cease();}
   }
@@ -122,7 +116,7 @@ let ch = canvas.height = window.innerHeight,
     cy = ch / 2;
 let requestId = null;
 
-const colors = ["#93DFB8","#FFC8BA","#E3AAD6","#B5D8EB","#FFBDD8"];
+// const colors = ["#93DFB8","#FFC8BA","#E3AAD6","#B5D8EB","#FFBDD8"];
 
 class Particle{
   constructor(){
